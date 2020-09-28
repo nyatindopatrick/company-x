@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
+const cors = require('cors');
 require('dotenv').config();
 
 const port = process.env.PORT || 3001;
@@ -9,6 +10,7 @@ const port = process.env.PORT || 3001;
 const app = express();
 
 app.use(logger('dev'));
+app.use(cors());
 
 mongoose
   .connect(process.env.MONGO_URI, {
