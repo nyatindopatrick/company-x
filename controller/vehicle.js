@@ -25,8 +25,14 @@ exports.getAllVehicles = async (req, res) => {
 
 exports.getVehicle = async (req, res) => {
   const { id } = req.params;
-
-  const car = await Vehicle.findOne({ registrationNo: id });
-
-  res.status(200).send(car);
+  try {
+    const car = await Vehicle.findOne({ registrationNo: id });
+    if (car) {
+      res.status(200).send(car);
+    } else {
+      res.status(400).end();
+    }
+  } catch (error) {
+    res.status(400).end();
+  }
 };
