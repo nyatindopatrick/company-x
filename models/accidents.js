@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const accidentSchema = new Schema({
-  damageExtent: { type: String, enum: ['minor', 'major'], required: true },
+  damageExtent: { type: String, enum: ['Minor', 'Major'], required: true },
   comments: { type: String, required: true },
   date: { type: String, required: true },
   time: { type: String, required: true },

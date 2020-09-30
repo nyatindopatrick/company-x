@@ -3,7 +3,6 @@ const { Schema, model } = require('mongoose');
 const incidentSchema = new Schema({
   incidentType: {
     type: String,
-    enum: ['puncture', 'breakdown', 'city council encounter'],
     required: true,
   },
   comments: { type: String, required: true },

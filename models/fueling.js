@@ -3,7 +3,6 @@ const { Schema, model } = require('mongoose');
 const fuelingSchema = new Schema({
   station: {
     type: String,
-    enum: ['Total', 'Shell', 'National Oil'],
     required: true,
   },
   liters: { type: Number, required: true },

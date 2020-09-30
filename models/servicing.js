@@ -5,7 +5,6 @@ const servicingSchema = new Schema({
   serviceDueDate: { type: Date, required: true },
   garage: {
     type: String,
-    enum: ['Embakasi', 'Donholm', 'Langata', 'Kawangware'],
     required: true,
   },
   partsNeeded: { type: Array, required: true },
