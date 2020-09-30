@@ -52,7 +52,7 @@ exports.getTrip = async (req, res) => {
 
 exports.activeTrips = async (req, res) => {
   const trip = await Trips.find({ 'ended.status': false });
-  if (trip) {
+  if (trip.length > 0) {
     res.status(200).send(trip);
   } else {
     res.status(400).end();
