@@ -10,7 +10,7 @@ exports.startTrip = async (req, res) => {
   } else {
     try {
       const newTrip = new Trips({
-        vehicle: car,
+        vehicle: car._id,
         odometer,
         startingPoint,
         date,
@@ -29,7 +29,7 @@ exports.endTrip = async (req, res) => {
   const { tripId, odometer, destination, date, time, location } = req.body;
   const car = await Vehicle.findOne({ registrationNo: tripId });
 
-  const trip = await Trips.findOne({ vehicle: car.id, 'ended.status': false });
+  const trip = await Trips.findOne({ vehicle: car._id, 'ended.status': false });
   if (trip) {
     trip.ended = {
       status: true,

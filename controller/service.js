@@ -1,4 +1,5 @@
 const Service = require('../models/servicing');
+const Vehicle = require('../models/vehicles');
 
 exports.reportService = async (req, res) => {
   const {
@@ -12,6 +13,8 @@ exports.reportService = async (req, res) => {
     odometer,
     partsNeeded,
   } = req.body;
+  const car = await Vehicle.findOne({ registrationNo: vehicle });
+
   if (
     !odometer ||
     !garage ||
@@ -31,8 +34,8 @@ exports.reportService = async (req, res) => {
       comments,
       date,
       time,
-      location,
-      vehicle,
+      location: JSON.stringify(location),
+      vehicle: car._id,
       odometer,
       partsNeeded,
     });
