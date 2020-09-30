@@ -1,5 +1,5 @@
 const Trips = require('../models/trips');
-const Vehicle = require('../models/vehicle');
+const Vehicle = require('../models/vehicles');
 
 exports.startTrip = async (req, res) => {
   const { vehicle, odometer, startingPoint, date, time, location } = req.body;
