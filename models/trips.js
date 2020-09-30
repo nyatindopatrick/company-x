@@ -15,7 +15,7 @@ const tripSchema = new Schema(
     ended: {
       status: { type: Boolean, default: false },
       odometer: { type: Number },
-      destination: { type: Number },
+      destination: { type: String },
       date: { type: String },
       time: { type: String },
       location: { type: String },
