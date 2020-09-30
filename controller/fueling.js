@@ -9,7 +9,7 @@ exports.reportFueling = async (req, res) => {
     res.status(400).end();
   } else {
     const newFueling = new Fueling({
-      station,
+      station: station.join(''),
       liters,
       cost,
       date,

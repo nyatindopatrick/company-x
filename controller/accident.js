@@ -9,7 +9,7 @@ exports.reportAccident = async (req, res) => {
     res.status(400).end();
   } else {
     const newAccident = new Accident({
-      damageExtent,
+      damageExtent: damageExtent.join(''),
       comments,
       date,
       time,

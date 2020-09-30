@@ -9,7 +9,7 @@ exports.reportIncident = async (req, res) => {
     res.status(400).end();
   } else {
     const newAccident = new Incident({
-      type,
+      type: type.join(''),
       comments,
       date,
       time,

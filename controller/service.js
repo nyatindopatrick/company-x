@@ -29,7 +29,7 @@ exports.reportService = async (req, res) => {
     res.status(400).end();
   } else {
     const newService = new Service({
-      garage,
+      garage: garage.join(''),
       serviceDueDate,
       comments,
       date,
