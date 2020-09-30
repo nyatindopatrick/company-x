@@ -37,7 +37,7 @@ exports.endTrip = async (req, res) => {
       destination,
       date,
       time,
-      location,
+      location: JSON.stringify(location),
     };
     await trip.save();
     res.status(200).send('Trip ended successfully!');
