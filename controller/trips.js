@@ -1,21 +1,23 @@
 const Trips = require('../models/trips');
+const Vehicle = require('../models/vehicle');
 
 exports.startTrip = async (req, res) => {
   const { vehicle, odometer, startingPoint, date, time, location } = req.body;
-
-  if (!vehicle || !odometer || !startingPoint || !date || !time || !location) {
+  console.log(req.body);
+  const car = await Vehicle.findOne({ registrationNo: vehicle });
+  if (!car || !odometer || !startingPoint || !date || !time || !location) {
     res.status(400).send('Please fill all fields!');
   } else {
     try {
       const newTrip = new Trips({
-        vehicle,
+        vehicle: car,
         odometer,
         startingPoint,
         date,
         time,
         location,
       });
-      const saved = await newTrip.save();
+      await newTrip.save();
       res.status(200).send('Trip started successfully!');
     } catch (error) {
       res.status(500).end();
