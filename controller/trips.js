@@ -49,3 +49,12 @@ exports.getTrip = async (req, res) => {
     res.status(400).end();
   }
 };
+
+exports.activeTrips = async (req, res) => {
+  const trip = await Trips.find({ 'ended.status': false });
+  if (trip) {
+    res.status(200).send(trip);
+  } else {
+    res.status(400).end();
+  }
+};
