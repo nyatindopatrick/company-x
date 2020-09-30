@@ -7,7 +7,7 @@ const servicingSchema = new Schema({
     type: String,
     required: true,
   },
-  partsNeeded: { type: Array, required: true },
+  partsNeeded: { type: String, required: true },
   comments: { type: String, required: true },
   date: { type: String, required: true },
   time: { type: String, required: true },
