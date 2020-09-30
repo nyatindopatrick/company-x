@@ -51,9 +51,9 @@ exports.getTrip = async (req, res) => {
 };
 
 exports.activeTrips = async (req, res) => {
-  const trip = await Trips.find({ 'ended.status': false });
+  const trip = await Trips.find({ 'ended.status': false }).populate('vehicle');
   if (trip.length > 0) {
-    res.status(200).send(trip[0].vehicle.registrationNo);
+    res.status(200).send(trip);
   } else {
     res.status(400).end();
   }
