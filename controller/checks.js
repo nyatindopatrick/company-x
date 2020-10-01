@@ -2,7 +2,15 @@ const Check = require('../models/checks');
 const Vehicle = require('../models/vehicles');
 
 exports.createCheck = async (req, res) => {
-  const { vehicle, engine, mirrors, electrical, tires, general } = req.body;
+  const {
+    vehicle,
+    engine,
+    mirrors,
+    electrical,
+    tires,
+    general,
+    tripDate,
+  } = req.body;
   const car = await Vehicle.findOne({ registrationNo: vehicle });
 
   if (!engine || !mirrors || !electrical || !tires || !general) {
@@ -10,6 +18,7 @@ exports.createCheck = async (req, res) => {
   } else {
     const newCheck = new Check({
       engine,
+      tripDate,
       mirrors,
       electrical,
       tires,
