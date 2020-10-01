@@ -1,4 +1,4 @@
-const { Schema, ObjectID } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const checkSchema = new Schema(
   {
